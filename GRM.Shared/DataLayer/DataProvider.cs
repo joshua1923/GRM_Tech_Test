@@ -2,9 +2,6 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net;
-using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.IO;
 using System.Text;
 
@@ -32,9 +29,9 @@ namespace GRM.Shared.DataLayer
             }
         }
 
-        public List<Contracts> GetContractsByCriteria(Criteria criteria)
+        public IEnumerable<Contracts> GetContractsByCriteria(Criteria criteria)
         {
-            var response = new List<Contracts>();
+            List<Contracts> response;
 
             using (var client = new WebClient())
             {

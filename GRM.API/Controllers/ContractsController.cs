@@ -11,9 +11,9 @@ namespace GRM.API.Controllers
 {
     public class ContractsController : ApiController
     {
-        readonly IGenericRepository<Contracts> _contractsRepository;
-        readonly IGenericRepository<DistributionPartners> _partnersRepository;
-        readonly IManager _manager;
+	    private readonly IGenericRepository<Contracts> _contractsRepository;
+        private readonly IGenericRepository<DistributionPartners> _partnersRepository;
+        private readonly IManager _manager;
 
         public ContractsController(IGenericRepository<Contracts> contractsRepository, IGenericRepository<DistributionPartners> partnersRepository, IManager manager)
         {
@@ -33,7 +33,7 @@ namespace GRM.API.Controllers
         [HttpPost]
         public List<Contracts> Get(string date, string partner)
         {
-            var usage = _partnersRepository.Get(x => x.Partner.Equals(partner, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault().Usage;
+            var usage = _partnersRepository.Get(x => x.Partner.Equals(partner, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault()?.Usage;
 
             var contractsByUsage = _contractsRepository.Get(x => x.Usage.Equals(usage, StringComparison.InvariantCultureIgnoreCase)).ToList();
 

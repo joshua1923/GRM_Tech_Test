@@ -11,7 +11,7 @@ namespace GRM.Shared.Interfaces
     {
         IEnumerable<T> GetAll();
         IEnumerable<T> Get(Expression<Func<T, bool>> predicate);
-        void Add(List<T> entity);
+        void Add(IEnumerable<T> entity);
         void Save();
     }
 }

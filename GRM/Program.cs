@@ -10,8 +10,8 @@ namespace GRM
     {
         static void Main(string[] args)
         {
-            var filePathContracts = @"contracts.txt";
-            var filePathPartners = @"partners.txt";
+            const string filePathContracts = @"contracts.txt";
+            const string filePathPartners = @"partners.txt";
 
             var dataProvider = new DataProvider();
 
@@ -23,7 +23,7 @@ namespace GRM
             var input = Console.ReadLine();
             var inputSplit = input.Split(' ');
             var partner = inputSplit[0];
-            string date = $"{inputSplit[1]} {inputSplit[2]} {inputSplit[3]}";
+            var date = $"{inputSplit[1]} {inputSplit[2]} {inputSplit[3]}";
 
             var contracts = dataProvider.GetContractsByCriteria(new Criteria { Date = date, Partner = partner });
 
@@ -31,11 +31,7 @@ namespace GRM
             Console.WriteLine("Please find below the contracts that match your criteria:");
             Console.WriteLine();
             ConsoleTable.From(contracts).Write();
-
-
             Console.ReadKey();
-
-
         }
     }
 }

@@ -9,7 +9,7 @@ namespace GRM.Shared.Interfaces
 {
     public interface IManager
     {
-        List<Contracts> ReadContractsFromFile(string filePath);
-        List<DistributionPartners> ReadPartnersFromFile(string filePath);
+        IEnumerable<Contracts> ReadContractsFromFile(string filePath);
+        IEnumerable<DistributionPartners> ReadPartnersFromFile(string filePath);
     }
 }

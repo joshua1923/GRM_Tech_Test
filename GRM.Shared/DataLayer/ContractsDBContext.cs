@@ -15,7 +15,7 @@ namespace GRM.Shared.DataLayer
         {
         }
 
-        public ContractsDBContext(string ConnectionString) :
+        public ContractsDBContext(string connectionString) :
             base("DbContext")
         {
             Database.SetInitializer(new CreateDatabaseIfNotExists<ContractsDBContext>());

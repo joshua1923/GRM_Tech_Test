@@ -29,7 +29,7 @@ namespace GRM.Shared.Classes
             return table.Where(predicate).ToList();
         }
 
-        public void Add(List<T> entity)
+        public void Add(IEnumerable<T> entity)
         {
             table.AddRange(entity);
         }
